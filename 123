@@ -35,7 +35,8 @@ until game:IsLoaded()
 if not isfile("eclipse.wtf") then
    makefolder("eclipse.wtf")
 end
-
+--
+local ScreenGui = cloneref(Instance.new("ScreenGui", gethui()))
 ---// Variables
 local Camera = game:GetService("Workspace").Camera
 local RunService = game:GetService("RunService")
@@ -175,7 +176,13 @@ function library:AddToRegistry(Instance, Properties, IsHud)
             for Property, Value in next, Properties do _Instance[Property] = Value; end;
             return _Instance;
             end;
-            library.NotificationArea = library:Create('Frame', {BackgroundTransparency = 1;Position = UDim2.new(0.003, 0, 0, 40);Size = UDim2.new(0, 300, 0, 200);ZIndex = 100;Parent = ScreenGui});
+            library.NotificationArea = library:Create('Frame', {
+                BackgroundTransparency = 1;
+                Position = UDim2.new(0.003, 0, 0, 40);
+                Size = UDim2.new(0, 300, 0, 200);
+                ZIndex = 100;
+                Parent = ScreenGui;
+            })
             library:Create('UIListLayout', {Padding = UDim.new(0, 4);FillDirection = Enum.FillDirection.Vertical;SortOrder = Enum.SortOrder.LayoutOrder;Parent = library.NotificationArea});
             function library:Notify(Text, Time)
                local XSize, YSize = library:GetTextBounds(Text, Enum.Font.Code, 14);YSize = YSize + 7
