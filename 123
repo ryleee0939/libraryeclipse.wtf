@@ -181,7 +181,7 @@ function library:AddToRegistry(Instance, Properties, IsHud)
                 Position = UDim2.new(0.003, 0, 0, 40);
                 Size = UDim2.new(0, 300, 0, 200);
                 ZIndex = 100;
-                Parent = ScreenGui;
+                Parent = cloneref(gethui());
             })
             library:Create('UIListLayout', {Padding = UDim.new(0, 4);FillDirection = Enum.FillDirection.Vertical;SortOrder = Enum.SortOrder.LayoutOrder;Parent = library.NotificationArea});
             function library:Notify(Text, Time)
