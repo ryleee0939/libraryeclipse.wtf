@@ -534,8 +534,8 @@ repeat
                         library.scrolling = false
                         library.colorpicking = false
                 
-                        -- Re-enable default mouse icon if needed
-                        InputService.MouseIconEnabled = true
+                        -- Show the mouse only when the menu is open
+                        InputService.MouseIconEnabled = menu.Enabled
                 
                         for i, v in next, library.toInvis do
                             v.Visible = false
