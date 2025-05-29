@@ -527,17 +527,18 @@ repeat
             end           
  
             draggable(menu.bg)
-                InputService.MouseIconEnabled = false
+                InputService.MouseIconEnabled = true
                 InputService.InputEnded:Connect(function(key)
-                if key.KeyCode == library.keybind then 
-                    menu.Enabled = not menu.Enabled;library.scrolling = false;
-                    library.colorpicking = false;
-                    Cursor.Visible = not Cursor.Visible;
-                    InputService.MouseIconEnabled = not InputService.MouseIconEnabled;
-                    CursorOutline.Visible = not CursorOutline.Visible; 
-                    for i,v in next, 
-                        library.toInvis 
-                        do v.Visible = false 
+                    if key.KeyCode == library.keybind then 
+                        menu.Enabled = not menu.Enabled
+                        library.scrolling = false
+                        library.colorpicking = false
+                
+                        -- Re-enable default mouse icon if needed
+                        InputService.MouseIconEnabled = true
+                
+                        for i, v in next, library.toInvis do
+                            v.Visible = false
                         end 
                     end
                 end)
